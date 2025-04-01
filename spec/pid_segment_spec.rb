@@ -12,7 +12,7 @@ describe HL7::Message::Segment::PID do
         @base = "PID|1||333||LastName^FirstName^MiddleInitial^SR^NickName||19760228|CustomValue||2106-3^White^HL70005^CAUC^Caucasian^L||AA||||||555.55|012345678||||||||||201011110924-0700|Y|||||||||"
       end
 
-      it 'populates the admin_sex field with the correct value' do
+      it 'populates the admin_sex field with the given value' do
         pid = HL7::Message::Segment::PID.new @base
         expect(pid.admin_sex).to eq("CustomValue")
       end
