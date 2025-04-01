@@ -8,13 +8,7 @@ module HL7
     add_field :guarantor_home_phone
     add_field :guarantor_business_phone
     add_field :guarantor_date_of_birth
-    add_field :guarantor_sex do |sex|
-      unless /^[FMOUANC]$/.match(sex) || sex == nil || sex == ""
-        raise HL7::InvalidDataError.new( "bad administrative sex value (not F|M|O|U|A|N|C)" )
-      end
-      sex = "" unless sex
-      sex
-    end
+    add_field :guarantor_sex
     add_field :guarantor_type
     add_field :guarantor_relationship
     add_field :guarantor_ssn
@@ -72,4 +66,4 @@ module HL7
     add_field :guarantor_birth_place
     add_field :vip_indicator
   end
-end   
+end
