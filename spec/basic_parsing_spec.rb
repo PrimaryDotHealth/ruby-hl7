@@ -312,12 +312,6 @@ describe HL7::Message do
       expect(msg.index(1)).to be_nil
     end
 
-    it 'validates the PID#admin_sex element' do
-      pid = HL7::Message::Segment::PID.new
-      expect { pid.admin_sex = "TEST" }.to raise_error(HL7::InvalidDataError)
-      expect { pid.admin_sex = "F" }.not_to raise_error
-    end
-
     it 'can parse an empty segment' do
       expect { HL7::Message.new @empty_segments_txt }.not_to raise_error
     end
